@@ -7,7 +7,7 @@ function App() {
   return (
     
       <div>
-         <h1 className='text-5xl'>Vite + React</h1>
+         <h1 className='text-5xl'>Vite + React1</h1>
         
       </div>
      
