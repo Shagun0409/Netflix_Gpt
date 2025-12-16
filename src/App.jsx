@@ -1,17 +1,10 @@
-
-import './App.css'
-
+import Body from './components/Body'
+import './index.css'
 function App() {
 
 
   return (
-    
-      <div>
-         <h1 className='text-5xl'>Vite + React1</h1>
-        
-      </div>
-     
-
+      <Body/>
   )
 }
 

@@ -59,5 +59,11 @@ src/
 public/
 ```
 
+# NetflixGpt
+-Create React App
+-Configuard tailwind
+-Header
+-Login Form
+-Sign up form
 
 
