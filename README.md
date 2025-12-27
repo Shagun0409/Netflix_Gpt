@@ -63,7 +63,11 @@ public/
 -Create React App
 -Configuard tailwind
 -Header
+-Routing 
 -Login Form
 -Sign up form
+-Form Validation
+-UseRef Hook
+
 
 
