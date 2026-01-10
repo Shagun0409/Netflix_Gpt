@@ -68,6 +68,12 @@ public/
 -Sign up form
 -Form Validation
 -UseRef Hook
+-firebase setup
+-deploying our app to production
+-create signup user account
+-Implement Sign In User Api
+-Created Redux store with userSlice
+
 
 
 

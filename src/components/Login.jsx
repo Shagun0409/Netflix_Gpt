@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header"
 import { checkValidData } from "../utils/Validate";
-
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { updateProfile } from "firebase/auth";
 const Login = () => {
-
+  const navigate=useNavigate();
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage,seterrormessage]= useState(null);
   const email=useRef(null);
@@ -14,6 +17,47 @@ const Login = () => {
     const message=checkValidData(email.current.value, password.current.value);
 
     seterrormessage(message);
+
+    if(message===""){
+      if (!isSignInForm) {
+              // Sign Up logic
+
+        createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+             photoURL: "https://avatars.githubusercontent.com/u/110756704?v=4"
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            seterrormessage(error.message);
+          });
+          navigate("/Browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrormessage(errorMessage+" "+errorCode );
+        });
+      } else {
+        // Sign In logic
+       
+        signInWithEmailAndPassword(auth,email.current.value, password.current.value)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            navigate("/Browse");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log( errorCode + errorMessage);
+          });
+      }
+    }
+
+       
 
   
 } 
@@ -52,8 +96,9 @@ const toggleSignInForm = () => {
           placeholder="Password"
           className="bg-gray-700 text-white py-2 m-2 px-2 border-2 w-full"
         />
-        <p className="text-red-50">{errorMessage}</p>
-        <button className="bg-red-600 p-2 m-2 rounded w-full text-white"
+
+        <p className="text-red-500">{errorMessage}</p>
+        <button className="bg-red-600 p-2 m-2 rounded w-full text-white cursor-pointer"
             onClick={handleButtonClick}
         >{isSignInForm ? "Sign In" : "Sign Up"}</button>
         
