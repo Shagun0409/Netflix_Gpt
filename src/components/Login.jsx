@@ -1,16 +1,20 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "./Header"
 import { checkValidData } from "../utils/Validate";
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+
 const Login = () => {
-  const navigate=useNavigate();
+ 
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage,seterrormessage]= useState(null);
   const email=useRef(null);
-  const password=useRef(null);
+  const password = useRef(null);
+  const name = useRef(null); 
+  const dispatch = useDispatch(); 
 
   const handleButtonClick = () => {
 
@@ -22,32 +26,35 @@ const Login = () => {
       if (!isSignInForm) {
               // Sign Up logic
 
-        createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          updateProfile(user, {
-            displayName: name.current.value,
-             photoURL: "https://avatars.githubusercontent.com/u/110756704?v=4"
-          }).then(() => {
-            // Profile updated!
-            // ...
-          }).catch((error) => {
+        createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+          .then((userCredential) => {
+            const user = userCredential.user;
+
+            return updateProfile(user, {
+              displayName: name.current.value,
+              photoURL: "https://avatars.githubusercontent.com/u/110756704?v=4"
+            });
+          })
+          .then(() => {
+            const { uid, email, displayName , photoURL} = auth.currentUser;
+                    dispatch(addUser({
+                      uid: uid,
+                      email: email,
+                      displayName: displayName,
+                      photoURL: photoURL
+                    })
+                    );
+          })
+          .catch((error) => {
             seterrormessage(error.message);
           });
-          navigate("/Browse");
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          seterrormessage(errorMessage+" "+errorCode );
-        });
+
       } else {
         // Sign In logic
        
         signInWithEmailAndPassword(auth,email.current.value, password.current.value)
           .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/Browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -78,10 +85,11 @@ const toggleSignInForm = () => {
         
         {!isSignInForm &&
           <input
-          type="text"
-          placeholder="Full Name"
-          className="bg-gray-700 text-white py-2 m-2 px-2 border-2 w-full"
-        />
+            ref={name}
+            type="text"
+            placeholder="Full Name"
+            className="bg-gray-700 text-white py-2 m-2 px-2 border-2 w-full"
+          />
         }
         <input
           ref={email}

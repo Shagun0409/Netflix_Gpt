@@ -73,6 +73,11 @@ public/
 -create signup user account
 -Implement Sign In User Api
 -Created Redux store with userSlice
+-implemented signout
+-update profile
+-fetch from TMDB Movies
+-BugFix:Sign up user displayName and profile picture update
+-BugFix: if the user is not logged in redirect to /browse to login page  and vice-versa
 
 
 
