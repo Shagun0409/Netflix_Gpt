@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constant";
 
 const Login = () => {
  
@@ -32,7 +33,7 @@ const Login = () => {
 
             return updateProfile(user, {
               displayName: name.current.value,
-              photoURL: "https://avatars.githubusercontent.com/u/110756704?v=4"
+              photoURL: USER_AVATAR
             });
           })
           .then(() => {

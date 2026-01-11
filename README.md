@@ -78,6 +78,10 @@ public/
 -fetch from TMDB Movies
 -BugFix:Sign up user displayName and profile picture update
 -BugFix: if the user is not logged in redirect to /browse to login page  and vice-versa
+-Unsubscribed to the onAuthStateChanged callback
+-Add hardcoded values to the constants file
+-register for tmbd api & create an app
+-get data from tmdb now playing movies list api
 
 
 
