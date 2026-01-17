@@ -82,6 +82,14 @@ public/
 -Add hardcoded values to the constants file
 -register for tmbd api & create an app
 -get data from tmdb now playing movies list api
+-custom hook for now playing movies
+-created movieslice 
+-update store with movies data
+-planning for main container & secondary container
+-fetched data for trailer video
+-update store with trailer video
+-embedded the youtube video and make it autoplay and mute
+-
 
 
 
