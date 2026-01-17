@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "netflixgpt-9beae"
-  }
+  },
+  "targets": {
+    "netflixgpt-9beae": {
+      "hosting": {
+        "netflixgpt-9beae": [
+          "netflixgpt-9beae"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
