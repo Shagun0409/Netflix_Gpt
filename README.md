@@ -89,7 +89,11 @@ public/
 -fetched data for trailer video
 -update store with trailer video
 -embedded the youtube video and make it autoplay and mute
--
+-build movie list 
+-build movie card
+-tmdb image cdn url
+-display all api data 
+
 
 
 

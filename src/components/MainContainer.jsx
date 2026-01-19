@@ -7,8 +7,8 @@ const MainContainer = () => {
   const movies = useSelector(store => store.movies?.nowPlayingMovies);
    // Wait until movies are loaded
   if (!movies || movies.length === 0) return null;
-console.log(movies);
-  const mainMovie = movies[3];
+
+  const mainMovie = movies[0];
   const {original_title, overview,id} = mainMovie;
 
   return <div>

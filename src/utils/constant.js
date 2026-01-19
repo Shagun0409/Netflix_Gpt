@@ -2,6 +2,7 @@ export const LOGO_URL = "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe
 
 export const USER_AVATAR = "https://avatars.githubusercontent.com/u/110756704?v=4";
 
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
 
 export const API_OPTIONS = {
   method: 'GET',
