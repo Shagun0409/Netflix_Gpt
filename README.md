@@ -93,7 +93,10 @@ public/
 -build movie card
 -tmdb image cdn url
 -display all api data 
--GPT search feature
+-GPT search page
+-GPT search bar
+-multi lang feature
+
 
 
 

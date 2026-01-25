@@ -11,3 +11,19 @@ export const API_OPTIONS = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwODZmNjI1NDQwNTk2YTZkNGVhMDlhNWY0OGY0NDdmOCIsIm5iZiI6MTc2ODExNjcyNS40MjMsInN1YiI6IjY5NjM1MWY1MDI0YmZiMjk3NmQxNTJmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ziVl-fhzpjvfINdJnnj2yOtEetqoaejj5Q8a9Xh-P3A'
   }
 };
+export const BG_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+
+export const SUPPORTED_LANGUAGES = [
+  {
+  identifier: "en",
+  label: "English"
+  },
+  {
+  identifier: "hindi",
+  label: "Hindi"
+  },
+  {
+  identifier: "spanish",
+  label: "Spanish"
+  }
+]

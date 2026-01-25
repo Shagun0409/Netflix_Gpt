@@ -4,8 +4,9 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO_URL } from "../utils/constant";
+import { LOGO_URL, SUPPORTED_LANGUAGES } from "../utils/constant";
 import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 const Header = () => {
   const navigate = useNavigate(); 
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const Header = () => {
 
   }, []);
 
-
+const showGptSearch  = useSelector(store => store.gpt.showGptSearch);
 
   const handleSignOut = () => {
 
@@ -48,6 +49,10 @@ const Header = () => {
   const handleGptSearch = () => {
     //toggle gpt search component
     dispatch(toggleGptSearchView());
+  }
+
+  const handLanguaeChange = (e) => {
+  dispatch(changeLanguage(e.target.value));
   }
 
   return (
@@ -66,10 +71,20 @@ const Header = () => {
       {user &&
         <div className="inline-block ml-4">
 
+          
+          {showGptSearch && (
+            <select className="p-2 m-2 bg-black text-white " onChange={handLanguaeChange} >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.label}
+                </option>
+              ))}
+            </select>
+          )}
           <button className="bg-red-600  m-2 px-4 py-1 rounded cursor-pointer text-white font-bold"
-          onClick={handleGptSearch}>
-        GptSearch
-      </button>
+            onClick={handleGptSearch}>
+            {showGptSearch ? "Home": "GptSearch"}
+          </button>
         <img
           className="w-10 h-10 rounded-full inline-block"
           src={user?.photoURL}
