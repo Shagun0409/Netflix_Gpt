@@ -98,6 +98,55 @@ public/
 -multi lang feature
 
 
+# NetflixGpt 🎬🤖
+
+A Netflix-style movie browsing app with GPT-powered search and multi-language support.
+
+## 🚀 Features Implemented
+
+- Create React App  
+- Configured Tailwind CSS  
+- Header component  
+- Routing with React Router  
+- Login & Sign Up forms  
+- Form validation  
+- useRef Hook usage  
+- Firebase setup  
+- Deploying app to production  
+
+## 🔐 Authentication
+
+- Create Sign Up user account  
+- Implement Sign In User API  
+- Created Redux store with `userSlice`  
+- Implemented Sign Out  
+- Update user profile  
+- Bug Fix: Display name & profile picture update  
+- Bug Fix: Redirect unauthenticated users to Login and authenticated users to Browse  
+- Unsubscribed from `onAuthStateChanged` callback  
+
+## 🎥 Movie Features (TMDB)
+
+- Register for TMDB API & create app  
+- Fetch now playing movies from TMDB  
+- Custom hook for now playing movies  
+- Created `movieSlice`  
+- Update store with movies data  
+- Planned main container & secondary container  
+- Fetch trailer video data  
+- Update store with trailer video  
+- Embedded YouTube trailer (autoplay & mute)  
+- Build Movie List & Movie Card components  
+- Use TMDB Image CDN URL  
+- Display all API data  
+
+## 🤖 GPT & Extra Features
+
+- GPT Search Page  
+- GPT Search Bar  
+- Multi-language feature 🌍  
+
+
 
 
 
