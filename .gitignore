@@ -12,3 +12,6 @@ dist/
 .DS_Store
 .vscode/
 .idea/
+.env
+.env.local
+.env.*.local    
