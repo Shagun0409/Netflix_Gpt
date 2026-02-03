@@ -27,3 +27,6 @@ export const SUPPORTED_LANGUAGES = [
   label: "Spanish"
   }
 ]
+
+
+export const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;

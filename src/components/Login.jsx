@@ -78,10 +78,10 @@ const toggleSignInForm = () => {
       <Header />
 
       <div className="absolute ">
-      <img src={BG_URL} alt="Background Image"  />
+      <img className="w-full h-full object-cover" src={BG_URL} alt="Background Image"  />
       </div>
 
-      <form onSubmit={(e)=> e.preventDefault()} className="my-40 absolute p-12 bg-black w-3/12 mx-auto right-0 left-0 rounded  flex flex-col items-center" style={{ opacity: 0.8 }}> 
+      <form onSubmit={(e)=> e.preventDefault()} className="my-40 w-full absolute p-12 bg-black md:w-3/12 mx-auto right-0 left-0 rounded  flex flex-col items-center" style={{ opacity: 0.8 }}> 
         <h1 className="text-3xl mb-6 text-white py-4 font-bold">{isSignInForm ? "Sign In" : "Sign Up"}      </h1>
         
         {!isSignInForm &&
