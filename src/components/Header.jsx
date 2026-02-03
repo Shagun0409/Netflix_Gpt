@@ -51,7 +51,7 @@ const showGptSearch  = useSelector(store => store.gpt.showGptSearch);
     dispatch(toggleGptSearchView());
   }
 
-  const handLanguaeChange = (e) => {
+  const handleLanguageChange = (e) => {
   dispatch(changeLanguage(e.target.value));
   }
 
@@ -73,10 +73,10 @@ const showGptSearch  = useSelector(store => store.gpt.showGptSearch);
 
           
           {showGptSearch && (
-            <select className="p-2 m-2 bg-black text-white " onChange={handLanguaeChange} >
+            <select className="p-2 m-2 bg-black text-white " onChange={handleLanguageChange} >
               {SUPPORTED_LANGUAGES.map((lang) => (
                 <option key={lang.identifier} value={lang.identifier}>
-                  {lang.label}
+                  {lang.name}
                 </option>
               ))}
             </select>
