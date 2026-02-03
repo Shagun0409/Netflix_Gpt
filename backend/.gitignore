@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# production builds
+build/
+dist/
+
+# firebase
+.firebase/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+.env
+.env.local
+.env.*.local    
