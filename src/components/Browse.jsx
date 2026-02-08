@@ -15,39 +15,22 @@ const Browse = () => {
 
   const showGptSearch  = useSelector(store => store.gpt.showGptSearch);
   useNowPlayingMovies();
-  //fetch data from the movie db api and store it in redux store  
   usePopularMovies();
   useUpcomingMovies();
   useTopRatedMovies();
+  
   return (
-    <div> 
+    <div className="min-h-screen bg-black w-full">
       <Header />
-      {showGptSearch ? <GptSearch /> :  <><MainContainer />
-      <SecondaryContainer />
-      </>}
-{/* main content
-      -Video background
-      -Video title
-      -Play button
-      -More Info button
-      -Movie rows
-
-      Secondary content
-      -Trending now row
-      -Top rated row
-    
-
-
-*/}
-
-
-
-
-
-
-
-
+      {showGptSearch ? <GptSearch /> : 
+        <main className="pt-14 sm:pt-16 md:pt-20">
+          <MainContainer />
+          <SecondaryContainer />
+        </main>
+      }
     </div>
   )
+
+
 }
 export default Browse

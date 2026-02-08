@@ -12,9 +12,9 @@ const MainContainer = () => {
   const {original_title, overview,id} = mainMovie;
 
  return (
-    <div className="pt-[57%] bg-black md:pt-0">
-      <VideoTitle title={original_title} overview={overview} />
+    <div className="relative w-full bg-black pt-[56%] sm:pt-[50%] md:pt-0">
       <VideoBackground movieId={id} />
+      <VideoTitle title={original_title} overview={overview} />
     </div>
   );
 }

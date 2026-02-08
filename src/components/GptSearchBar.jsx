@@ -86,20 +86,21 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className='w-full pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8'>
+    <div className='w-full pt-16 sm:pt-20 md:pt-24 px-4 sm:px-6 lg:px-8 pb-8'>
       <form
-        className='max-w-2xl mx-auto bg-black/70 backdrop-blur-sm p-3 sm:p-5 md:p-6 rounded-xl shadow-2xl border border-gray-800'
+        className='max-w-3xl mx-auto bg-black/60 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-red-600/50 transition-colors duration-300'
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className='flex flex-col sm:flex-row gap-3 items-center'>
+        <div className='flex flex-col sm:flex-row gap-3 items-stretch sm:items-center'>
           <input
             ref={searchText}
-            className='flex-1 w-full px-4 py-3 sm:py-4 rounded-lg text-gray-900 bg-white placeholder-gray-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-600 transition'
+            className='flex-1 w-full px-4 py-3 sm:py-4 rounded-lg text-gray-900 bg-white placeholder-gray-600 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black transition-all duration-300 font-medium'
             type="text"
             placeholder={lang[langkey].placeholder}
+            maxLength="100"
           />
           <button
-            className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition duration-200 text-sm sm:text-base"
+            className="w-full sm:w-auto bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-lg transition-all duration-200 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
             onClick={handleGptSearchClick}
             type="submit"
           >
