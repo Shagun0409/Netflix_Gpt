@@ -33,7 +33,7 @@ const GptSearchBar = () => {
     console.log("Search clicked:", query);
 
     // ✅ AI enabled only for you
-    const AI_ENABLED = userEmail === "shagun.sg2003@gmail.com";
+    const AI_ENABLED = userEmail === "shagun.sg20034@gmail.com";
 
     // ==========================
     // 🤖 AI FLOW (UNCHANGED LOGIC)
