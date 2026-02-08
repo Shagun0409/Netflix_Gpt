@@ -9,7 +9,7 @@ const GptSearchBar = () => {
   const dispatch = useDispatch();
   const langkey = useSelector((store) => store.config.lang);
 
-  // ✅ get logged-in user email
+  // get logged-in user email
   const userEmail = useSelector((store) => store?.user?.email);
 
   const searchText = useRef(null);
@@ -86,18 +86,26 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className='pt-20'>
-      <form className=' bg-black w-1/2 mx-auto flex justify-center items-center grid-cols-12 rounded-2xl shadow-lg shadow-black/50'
-      onSubmit={(e) => e.preventDefault()}
-      
+    <div className='w-full pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8'>
+      <form
+        className='max-w-2xl mx-auto bg-black/70 backdrop-blur-sm p-3 sm:p-5 md:p-6 rounded-xl shadow-2xl border border-gray-800'
+        onSubmit={(e) => e.preventDefault()}
       >
-        <input
-          ref={searchText}
-          className='p-4 m-4 w-3/4 rounded-lg text-black bg-white col-span-8' 
-          type="text" placeholder={lang[langkey].placeholder} />
-        <button className="bg-red-700 m-4 text-white px-4 py-2 rounded-lg col-span-4"
-          onClick={handleGptSearchClick}
-          type="submit">{lang[langkey].search}</button>
+        <div className='flex flex-col sm:flex-row gap-3 items-center'>
+          <input
+            ref={searchText}
+            className='flex-1 w-full px-4 py-3 sm:py-4 rounded-lg text-gray-900 bg-white placeholder-gray-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-600 transition'
+            type="text"
+            placeholder={lang[langkey].placeholder}
+          />
+          <button
+            className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition duration-200 text-sm sm:text-base"
+            onClick={handleGptSearchClick}
+            type="submit"
+          >
+            {lang[langkey].search}
+          </button>
+        </div>
       </form>
     </div>
   )
